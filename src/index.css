@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Space Grotesk", sans-serif;
+}
+
+:root {
+  /* Minimal Clean Palette - Light Mode */
+  --bg-primary: #ffffff;
+  --bg-secondary: #fafafa;
+  --bg-card: #ffffff;
+  
+  --text-main: #111111;
+  --text-muted: #555555;
+  --text-faint: #a0a0a0;
+  
+  --border-main: #e5e5e5;
+  --border-subtle: #f0f0f0;
+  
+  --accent-primary: #000000;
+  --accent-secondary: #000000; 
+  
+  --selection: rgba(0, 0, 0, 0.04);
+}
+
+.dark {
+  /* Minimal Clean Palette - Dark Mode */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #121212;
+  --bg-card: #181818;
+  
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --text-faint: #404040;
+  
+  --border-main: #1f2937;
+  --border-subtle: #262626;
+  
+  --accent-primary: #ffffff;
+  --accent-secondary: #ffffff;
+  
+  --selection: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Clean Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-faint);
+}
+
+/* Minimal Card Elements */
+.tech-border {
+  border: 1px solid var(--border-main);
+}
+
+.tech-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.2s ease;
+}
+
+.tech-card:hover {
+  border-color: var(--border-main);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+/* Tiptap Editor Styling - Minimal Edition */
+.ProseMirror {
+  outline: none !important;
+  min-height: 500px;
+  padding-bottom: 20vh;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ProseMirror h1, .ProseMirror h2, .ProseMirror h3, .ProseMirror h4 {
+  font-family: var(--font-display);
+  color: var(--text-main);
+  letter-spacing: -0.03em;
+}
+
+.ProseMirror h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.ProseMirror h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.ProseMirror p {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  font-size: 1.125rem;
+}
+
+.ProseMirror blockquote {
+  border-left: 3px solid var(--text-main);
+  padding: 0.5rem 2rem;
+  margin: 2.5rem 0;
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 1.25rem;
+}
+
+.ProseMirror .callout {
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-secondary);
+  padding: 1.5rem;
+  margin: 2.5rem 0;
+  display: flex;
+  gap: 1.25rem;
+  border-radius: 12px;
+}
+
+.ProseMirror pre {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-subtle);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 2.5rem 0;
+  overflow-x: auto;
+}
+
+.ProseMirror code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--bg-secondary);
+  padding: 0.2em 0.4em;
+  border-radius: 6px;
+  color: var(--text-main);
+}
+
+.ProseMirror pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 2.5rem 0;
+}
+
+.ProseMirror table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 2rem 0;
+  table-layout: fixed;
+}
+
+.ProseMirror th, .ProseMirror td {
+  border: 1px solid var(--border-subtle);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  min-width: 100px;
+  position: relative;
+}
+
+.ProseMirror th {
+  background: var(--bg-secondary);
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 0.85rem;
+}
+
+.ProseMirror .selectedCell:after {
+  z-index: 2;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(var(--theme-color-rgb), 0.1);
+  pointer-events: none;
+}
+
+.ProseMirror .column-resize-handle {
+  position: absolute;
+  right: -2px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--theme-color);
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* Placeholder Styling */
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: var(--text-faint);
+  pointer-events: none;
+  height: 0;
+}
+
+.ProseMirror p.is-empty::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: var(--text-faint);
+  pointer-events: none;
+  height: 0;
+}
+
+.ProseMirror ul[data-type="taskList"] {
+  list-style: none;
+  padding: 0;
+}
+
+.ProseMirror ul[data-type="taskList"] li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.ProseMirror ul[data-type="taskList"] li > label {
+  margin-right: 0.75rem;
+  user-select: none;
+}
+
+.ProseMirror ul[data-type="taskList"] input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--border-main);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  margin-top: 4px;
+}
+
+.ProseMirror ul[data-type="taskList"] input[type="checkbox"]:checked {
+  background: var(--accent-secondary);
+  border-color: var(--accent-secondary);
+}
+
+.ProseMirror ul[data-type="taskList"] input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+}
+
+/* Hashtag Styling */
+.hashtag {
+  color: var(--accent-secondary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hashtag:hover {
+  text-decoration: underline;
+}
+
+/* Custom Animations */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.scanline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(0, 255, 0, 0.05), transparent);
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 100;
+}
